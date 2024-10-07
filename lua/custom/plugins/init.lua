@@ -5,4 +5,8 @@
 require 'custom.keymaps'
 
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'github/copilot.vim',
+  },
+}
