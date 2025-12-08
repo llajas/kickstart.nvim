@@ -9,10 +9,12 @@ return {
       { 'folke/snacks.nvim', opts = { input = {}, picker = {}, terminal = {} } },
     },
     config = function()
+      -- Auto-detect: use tmux when inside a session, otherwise use snacks floating terminal
+      local in_tmux = vim.env.TMUX ~= nil
       ---@type opencode.Opts
       vim.g.opencode_opts = {
         provider = {
-          enabled = 'tmux',
+          enabled = in_tmux and 'tmux' or 'snacks',
           tmux = {
             options = '-h', -- Open in horizontal split
           },
