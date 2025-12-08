@@ -22,26 +22,23 @@ return {
       -- Required for opts.events.reload
       vim.o.autoread = true
 
-      -- Keymaps (opencode defaults)
-      vim.keymap.set({ 'n', 'x' }, '<C-a>', function()
+      -- Keymaps using <leader>o prefix for opencode
+      -- <leader> is <Space> by default in kickstart.nvim
+      vim.keymap.set({ 'n', 'x' }, '<leader>oa', function()
         require('opencode').ask('@this: ', { submit = true })
-      end, { desc = 'Ask opencode' })
+      end, { desc = '[O]pencode [A]sk' })
 
-      vim.keymap.set({ 'n', 'x' }, '<C-x>', function()
+      vim.keymap.set({ 'n', 'x' }, '<leader>os', function()
         require('opencode').select()
-      end, { desc = 'Execute opencode action…' })
+      end, { desc = '[O]pencode [S]elect action' })
 
-      vim.keymap.set({ 'n', 'x' }, 'ga', function()
+      vim.keymap.set({ 'n', 'x' }, '<leader>op', function()
         require('opencode').prompt('@this')
-      end, { desc = 'Add to opencode' })
+      end, { desc = '[O]pencode [P]rompt with context' })
 
-      vim.keymap.set({ 'n', 't' }, '<C-.>', function()
+      vim.keymap.set({ 'n', 't' }, '<leader>ot', function()
         require('opencode').toggle()
-      end, { desc = 'Toggle opencode' })
-
-      -- Remap +/- for increment/decrement since <C-a>/<C-x> are used by opencode
-      vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment', noremap = true })
-      vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement', noremap = true })
+      end, { desc = '[O]pencode [T]oggle' })
     end,
   },
 }
