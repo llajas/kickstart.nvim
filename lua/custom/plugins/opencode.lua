@@ -41,13 +41,6 @@ return {
       vim.keymap.set({ 'n', 't' }, '<leader>ot', function()
         require('opencode').toggle()
       end, { desc = '[O]pencode [T]oggle' })
-
-      -- Terminal mode: Ctrl+\ Ctrl+n escapes to normal mode (built-in)
-      -- Add double-Esc to also escape terminal mode for convenience
-      vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-      -- Allow Ctrl+w navigation from terminal mode
-      vim.keymap.set('t', '<C-w>', '<C-\\><C-n><C-w>', { desc = 'Window navigation from terminal' })
     end,
   },
 }
